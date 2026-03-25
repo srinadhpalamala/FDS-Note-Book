@@ -1,0 +1,59 @@
+1.PROGRAM: 
+# Importing necessary library 
+import pandas as pd 
+ 
+# Loading the dataset (example: students.csv) 
+data = pd.read_csv("students.csv") 
+ 
+# Display first 5 rows of the dataset 
+print("First 5 Rows of Dataset:") 
+print(data.head()) 
+ 
+# Display the number of rows and columns 
+print("\nShape of the Dataset:") 
+print(data.shape) 
+ 
+# Display column names 
+print("\nColumn Names:") 
+print(data.columns) 
+ 
+# Display statistical summary of numerical columns 
+print("\nStatistical Summary:") 
+print(data.describe()) 
+ 
+# Check for missing values 
+print("\nMissing Values in Each Column:") 
+print(data.isnull().sum())
+
+
+
+
+
+
+
+
+
+2.PROGRAM: 
+# Importing necessary libraries 
+import numpy as np 
+import pandas as pd 
+ 
+# 1. List 
+marks = [85, 90, 78, 88] 
+print("List of Marks:", marks) 
+ 
+# 2. Array 
+arr = np.array([1, 2, 3, 4, 5]) 
+print("\nArray Elements:", arr) 
+ 
+# 3. DataFrame 
+data = { 
+    'Name': ['Ram', 'Sita', 'Ravi'], 
+    'Marks': [85, 92, 78] 
+} 
+df = pd.DataFrame(data) 
+print("\nDataFrame:\n", df) 
+ 
+# 4. Matrix 
+matrix = np.array([[1, 2], [3, 4]]) 
+print("\nMatrix:\n", matrix)
