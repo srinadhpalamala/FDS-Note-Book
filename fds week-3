@@ -1,0 +1,55 @@
+1.PROGRAM: 
+# Importing necessary libraries 
+import pandas as pd 
+from pandas import json_normalize 
+ 
+# Sample nested JSON data 
+data = { 
+    "students": [ 
+        {"name": "Ram", "details": {"age": 20, "marks": 85}}, 
+        {"name": "Sita", "details": {"age": 19, "marks": 90}}, 
+        {"name": "Ravi", "details": {"age": 21, "marks": 78}} 
+    ] 
+} 
+ 
+# Convert JSON data into DataFrame 
+df = json_normalize(data["students"]) 
+ 
+# Display the flattened DataFrame 
+print("Flattened DataFrame from JSON:") 
+print(df) 
+ 
+
+
+
+2.PROGRAM: 
+# Importing required libraries 
+import requests 
+from bs4 import BeautifulSoup 
+import pandas as pd 
+ 
+# Sample HTML content (can also use a webpage URL) 
+html_data = """ 
+<table> 
+<tr><th>Name</th><th>Age</th><th>Marks</th></tr> 
+<tr><td>Ram</td><td>20</td><td>85</td></tr> 
+<tr><td>Sita</td><td>19</td><td>90</td></tr> 
+<tr><td>Ravi</td><td>21</td><td>78</td></tr> 
+</table> 
+""" 
+ 
+# Parse the HTML data using BeautifulSoup 
+soup = BeautifulSoup(html_data, 'html.parser') 
+ 
+# Extract table rows 
+rows = [] 
+for tr in soup.find_all('tr'): 
+    cols = [td.text for td in tr.find_all(['td', 'th'])] 
+    rows.append(cols) 
+ 
+# Convert to DataFrame 
+df = pd.DataFrame(rows[1:], columns=rows[0]) 
+ 
+# Display the DataFrame 
+print("Extracted DataFrame from HTML Table:") 
+print(df) 
